@@ -33,19 +33,29 @@ public class DefaultCacheProvider extends AbstractCacheProvider {
 	private final Hashtable resourcesAbsolutePath = new Hashtable();
 	private final Hashtable resourcesMappedPath = new Hashtable();
 
+	private static String pathSansInfo(final String path) {
+		if ( path == null ) {
+			return path;
+		}
+		int index = path.lastIndexOf(';');
+		if ( index < 0 ) {
+			return path;
+		}
+		return path.substring(0, index);
+	}
 
 	public Resource getResourceByAbsolutePath(final String absolutePath) {
-		return (Resource)resourcesAbsolutePath.get(absolutePath);
+		return (Resource) resourcesAbsolutePath.get(pathSansInfo(absolutePath));
 	}
 
 
 	public Resource getResourceByMappedPath(final String mappedPath) {
-		return (Resource)resourcesMappedPath.get(mappedPath);
+		return (Resource) resourcesMappedPath.get(pathSansInfo(mappedPath));
 	}
 
 
 	public boolean existResource(final String absolutePath) {
-		return resourcesAbsolutePath.containsKey(absolutePath);
+		return resourcesAbsolutePath.containsKey(pathSansInfo(absolutePath));
 	}
 
 
@@ -76,12 +86,12 @@ public class DefaultCacheProvider extends AbstractCacheProvider {
 
 
 	public void removeAbsolutePath(final String absolutePath) {
-		resourcesAbsolutePath.remove(absolutePath);
+		resourcesAbsolutePath.remove(pathSansInfo(absolutePath));
 	}
 
 
 	public void removeMappedPath(final String mappedPath) {
-		resourcesMappedPath.remove(mappedPath);
+		resourcesMappedPath.remove(pathSansInfo(mappedPath));
 	}
 
 }
