@@ -1,6 +1,7 @@
 net/sf/packtag/filter/GzipFilter.class
 net/sf/packtag/implementation/barryvan/Selector.class
 net/sf/packtag/tag/ScriptTag.class
+net/sf/packtag/util/FilenameUtils.class
 net/sf/packtag/util/RequestUtil.class
 net/sf/packtag/implementation/RhinoPackStrategy.class
 net/sf/packtag/servlet/CleanupServlet.class

@@ -10,8 +10,8 @@ import java.nio.charset.Charset;
 
 /**
  * A super Strategy with supporting methods.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public abstract class AbstractPackStrategy implements PackStrategy {
 

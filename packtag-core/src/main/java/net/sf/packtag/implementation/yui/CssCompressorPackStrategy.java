@@ -17,8 +17,8 @@ import com.yahoo.platform.yui.compressor.CssCompressor;
 /**
  * CSS Compressor by Isaac Schlueter (http://foohack.com).
  * The Compressor comes with the YuiCompressor.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class CssCompressorPackStrategy extends CssRewritePackStrategy {
 

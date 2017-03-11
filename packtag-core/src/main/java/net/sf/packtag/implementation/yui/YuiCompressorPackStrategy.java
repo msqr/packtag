@@ -17,8 +17,8 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
 
 /**
  * YuiCompressor from Julien Lecomte (http://www.julienlecomte.net)
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class YuiCompressorPackStrategy extends AbstractPackStrategy {
 

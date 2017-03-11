@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 /**
  * Represents a Cached Resource
- * 
- * @author  Daniel Galán y Martins
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class Resource implements Cloneable, Serializable {
 

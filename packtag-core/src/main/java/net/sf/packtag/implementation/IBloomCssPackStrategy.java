@@ -13,8 +13,8 @@ import net.sf.packtag.strategy.PackException;
  * Strategy to compress CSS files.<br/> See <a
  * href="http://www.ibloomstudios.com/articles/php_css_compressor/">here</a>
  * for more information.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class IBloomCssPackStrategy extends CssRewritePackStrategy {
 

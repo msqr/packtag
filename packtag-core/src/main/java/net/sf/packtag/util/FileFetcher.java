@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Collects all files by extension.
  *
- * @author  Daniel Galán y Martins
+ * @author  Daniel Gal√°n y Martins
  */
 public class FileFetcher {
 

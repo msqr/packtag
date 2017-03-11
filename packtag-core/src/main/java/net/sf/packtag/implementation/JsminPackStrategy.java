@@ -17,8 +17,8 @@ import net.sf.packtag.util.SafeLogger;
  * Strategy for compressing JavaScript resources with the JSMin algorithm, taken
  * from Douglas Crockford: http://www.crockford.com This Strategy does not
  * support charsets.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class JsminPackStrategy implements PackStrategy {
 

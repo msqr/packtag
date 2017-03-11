@@ -3,8 +3,8 @@ package net.sf.packtag.strategy;
 
 /**
  * Exception thrown when the strategy has trouble compressing the resource.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class PackException extends Exception {
 

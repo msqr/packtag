@@ -6,15 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * Provides some Helper Methodes regarding to the sended request. 
- * 
- * @author  Daniel Galán y Martins
+ * Provides some Helper Methodes regarding to the sended request.
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class RequestUtil {
 
 	/**
 	* Tests gzip capabilities of the users browser.
-	* 
+	*
 	* @param request The current request
 	* @return Indicating GZIP support
 	*/

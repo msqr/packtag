@@ -3,8 +3,8 @@ package net.sf.packtag.util;
 
 /**
  * List of HTTP header names
- * 
- * @author  Daniel Galán y Martins
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class HttpHeader {
 

@@ -8,8 +8,8 @@ import java.io.InputStream;
 
 /**
  * Reads multiple Inputstreams as one
- * 
- * @author  Daniel Galán y Martins
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class CombinedInputStream extends InputStream {
 
@@ -24,7 +24,7 @@ public class CombinedInputStream extends InputStream {
 
 	/**
 	 * Constructs an combined InputStream, that reads from array stream per stream, till the last stream
-	 * 
+	 *
 	 * @param streams All Streams that will be combined
 	 */
 	public CombinedInputStream(final InputStream[] streams) {

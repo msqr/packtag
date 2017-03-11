@@ -10,8 +10,8 @@ import net.sf.packtag.strategy.PackStrategy;
 
 /**
  * JSP Tag for compressing Cascading Style Sheet resources.
- * 
- * @author Daniel Galán y Martins
+ *
+ * @author Daniel Gal√°n y Martins
  */
 public class StyleTag extends PackTag {
 

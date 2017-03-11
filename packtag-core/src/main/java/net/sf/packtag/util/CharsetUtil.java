@@ -8,8 +8,8 @@ import java.nio.charset.Charset;
 
 /**
  * Helps on Charset relevant operations
- * 
- * @author  Daniel Galán y Martins
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class CharsetUtil {
 

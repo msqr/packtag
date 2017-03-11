@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * class desciption. Purpose, functionality, etc..
- * 
- * @author  Daniel Galán y Martins
+ *
+ * @author  Daniel Gal√°n y Martins
  */
 public class AbstractFilter implements Filter {
 
