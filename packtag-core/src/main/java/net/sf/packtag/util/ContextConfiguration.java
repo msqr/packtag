@@ -78,17 +78,12 @@ public class ContextConfiguration {
 	public final static String SCRIPT_ASYNCDEFER_XHTML = "XHTML";
 	public final static String SCRIPT_ASYNCDEFER_HTML5 = "HTML5";
 
-        private final static String TRUE = Boolean.TRUE.toString();
+    private final static String TRUE = Boolean.TRUE.toString();
 	private final static String FALSE = Boolean.FALSE.toString();
 
-	private static Properties properties;
-
-	/** Singleton for the cache file path */
-	private static String cacheFilePath;
-
-	/** Singleton for the Charset */
-	private static Charset charset;
-
+	private final static String PROPERTIES_ATTR = "net.sf.packtag.props";
+	private final static String CHARSET_ATTR = "net.sf.packtag.charset";
+	private final static String CACHEFILEPATH_ATTR = "net.sf.packtag.cachefilepath";
 
 	protected static Properties loadPropertyFile(final ServletContext context) {
 		Properties result = new Properties();
@@ -115,12 +110,10 @@ public class ContextConfiguration {
 
 
 	protected static Properties getProperties(final ServletContext context) {
-		if (properties == null) {
-			synchronized (ContextConfiguration.class) {
-				if (properties == null) {
-					properties = loadPropertyFile(context);
-				}
-			}
+		Properties properties = (Properties) context.getAttribute(PROPERTIES_ATTR);
+		if ( properties == null ) {
+			properties = loadPropertyFile(context);
+			context.setAttribute(PROPERTIES_ATTR, properties);
 		}
 		return properties;
 	}
@@ -144,7 +137,7 @@ public class ContextConfiguration {
 	public static boolean isCachetypeFile(final ServletContext context) {
 		return CACHE_TYPE_FILE.equalsIgnoreCase(getCacheType(context));
 	}
-        
+
 	protected static String getScriptAsyncDefer(final ServletContext context) {
 		return getProperty(context, "script.asyncdefer", SCRIPT_ASYNCDEFER_XHTML);
 	}
@@ -200,19 +193,17 @@ public class ContextConfiguration {
 
 
 	public static String getCacheFilePath(final ServletContext context) {
-		if (cacheFilePath == null) {
-			synchronized (ContextConfiguration.class) {
-				if (cacheFilePath == null) {
-					String path = getProperty(context, "cache.file.path", "pack");
-					if (path.startsWith(SLASH)) {
-						path = path.substring(1, path.length());
-					}
-					if (path.endsWith(SLASH)) {
-						path = path.substring(0, path.length() - 1);
-					}
-					cacheFilePath = path;
-				}
+		String cacheFilePath = (String) context.getAttribute(CACHEFILEPATH_ATTR);
+		if ( cacheFilePath == null ) {
+			String path = getProperty(context, "cache.file.path", "pack");
+			if (path.startsWith(SLASH)) {
+				path = path.substring(1, path.length());
 			}
+			if (path.endsWith(SLASH)) {
+				path = path.substring(0, path.length() - 1);
+			}
+			cacheFilePath = path;
+			context.setAttribute(CACHEFILEPATH_ATTR, cacheFilePath);
 		}
 		return cacheFilePath;
 	}
@@ -231,24 +222,18 @@ public class ContextConfiguration {
 
 
 	public static Charset getCharset(final ServletContext context) {
-		if (charset == null) {
-			synchronized (ContextConfiguration.class) {
-				if (charset == null) {
-					String resourcesCharsetName = getProperty(context, "resources.charset");
-					String charsetName = getProperty(context, "charset"); // for backward compatibility
-					if (resourcesCharsetName != null) {
-						charset = Charset.forName(resourcesCharsetName);
-					}
-					else if (charsetName != null) {
-						charset = Charset.forName(charsetName);
-					}
-					else {
-						charset = new CharsetUtil().getDefaultCharset();
-					}
-				}
+		String charsetName = (String) context.getAttribute(CHARSET_ATTR);
+		if ( charsetName == null ) {
+			String resourcesCharsetName = getProperty(context, "resources.charset");
+			charsetName = getProperty(context, "charset"); // for backward compatibility
+			if ( resourcesCharsetName != null ) {
+				charsetName = resourcesCharsetName;
+			} else if ( charsetName == null ) {
+				charsetName = new CharsetUtil().getDefaultCharset().name();
 			}
+			context.setAttribute(CHARSET_ATTR, charsetName);
 		}
-		return charset;
+		return Charset.forName(charsetName);
 	}
 
 
