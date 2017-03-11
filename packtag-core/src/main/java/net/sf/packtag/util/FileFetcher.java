@@ -1,20 +1,4 @@
-/**
- * Project pack:tag >> http://packtag.sf.net
- *
- * This software is published under the terms of the LGPL
- * License version 2.1, a copy of which has been included with this
- * distribution in the 'lgpl.txt' file.
- *
- * Creation date: 15.03.2008 - 19:21:44
- * Last author:   $Author: danielgalan $
- * Last modified: $Date: 2008/03/15 21:39:53 $
- * Revision:      $Revision: 1.1 $
- *
- * $Log: FileFetcher.java,v $
- * Revision 1.1  2008/03/15 21:39:53  danielgalan
- * Collects all files by extension.
- *
- */
+/* Project pack:tag >> https://github.com/galan/packtag */
 package net.sf.packtag.util;
 
 import java.io.File;
@@ -29,7 +13,6 @@ import java.util.List;
  * Collects all files by extension.
  *
  * @author  Daniel Gal‡n y Martins
- * @version $Revision: 1.1 $
  */
 public class FileFetcher {
 

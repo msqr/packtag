@@ -1,3 +1,26 @@
+- 3.13.0
+  - pack:tag is now available using the Maven Central Repository 
+  - fix: fix removing one letter folders from path during resources rewrite (by jakubkrolikowski)
+
+- 3.12
+  - fix: Fixed tomcat 8/java 8 compatibility-issue (by liggiotti)
+  - update: Changed licence from LGPLv2.1 to ASLv2
+
+- 3.11
+  - enhancement: Possibility to add a prefix to a combined resource. This helps
+                 identifing the packed resource in the browser (by pherris@github)
+  - fix: The uri for the taglib is now https://github.com/galan/packtag
+         (old uris are still supported)
+
+- 3.10
+  - fix: tld contained github uri. Now github as well as sf uri are supported:
+         https://github.com/d8bitr/packtag and http://packtag.sf.net
+         (by Chris Lottes)
+  - fix: maven group changed to de.galan.packtag
+
+- 3.9
+  - enhancement: Maven repository, see https://github.com/galan/packtag
+
 - 3.8
   - enhancement: Support for async & defer
                  You can switch between XHTML and HTML5 markup via configuration
@@ -15,7 +38,7 @@
 
 - 3.6
   - fix: TLD body-content for script is now also "jsp"
-  
+
 - 3.5
   - enhancement: Caches are now pluggable (Ehcache provider is included)
                  You have to define two caches:

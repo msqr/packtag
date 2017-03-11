@@ -1,46 +1,23 @@
 <?xml version="1.0"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.galan.packtag</groupId>
+	<artifactId>packtag-testsite</artifactId>
+	<version>3.13.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>packtag-testsite - contains various tests of packtag</name>
+	<description>A JSP Taglib for delivering minified, combined and gzip-compressed resources (JavaScript and CSS).</description>
+	<url>https://github.com/galan/packtag</url>
+
 	<parent>
 		<artifactId>packtag-parent</artifactId>
-		<groupId>net.sf.packtag</groupId>
-		<version>3.8</version>
+		<groupId>de.galan.packtag</groupId>
+		<version>3.13.1-SNAPSHOT</version>
 	</parent>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.sf.packtag</groupId>
-	<artifactId>packtag-testsite</artifactId>
-	<packaging>war</packaging>
-	<name>packtag-testsite - contains various tests of packtag</name>
-	<version>3.8</version>
-	<url>http://maven.apache.org</url>
 
 	<build>
 		<plugins>
-			<!--
-				<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.1</version>
-				<executions>
-				<execution>
-				<phase>compile</phase>
-				<goals>
-				<goal>run</goal>
-				</goals>
-				<configuration>
-				<tasks>
-				<echo>${project.build.directory}, ${basedir}</echo>
-				<copy file="file1" tofile="file2" />
-				</tasks>
-				</configuration>
-				</execution>
-				</executions>
-				</plugin>
-			-->
-
-			<!-- If you want to use the default war packaging settings, 
-				this entire <plugins> section can be deleted.     -->
-			<!-- You only need to keep it if you want to customize some of
-				the settings -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -57,33 +34,47 @@
 					</archive>
 				</configuration>
 			</plugin>
+
+			<!-- Use to test with "mvn jetty:run", after "mvn install" on the parent -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.2.v20140723</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-        
+
 	<dependencies>
 		<!-- this one dependency will bring in all of the jar files that are 
 			transitively dependent... such as yui-compressor.jar... etc -->
 		<dependency>
-			<groupId>net.sf.packtag</groupId>
+			<groupId>de.galan.packtag</groupId>
 			<artifactId>packtag-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>net.sf.packtag</groupId>
+			<groupId>de.galan.packtag</groupId>
 			<artifactId>packtag-optional</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-                <dependency>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                    <version>2.4</version>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>jsp-api</artifactId>
-                    <version>2.0</version>
-                    <scope>provided</scope>
-                </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>
