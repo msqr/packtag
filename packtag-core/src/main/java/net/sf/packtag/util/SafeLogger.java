@@ -23,7 +23,7 @@ package net.sf.packtag.util;
 /**
  * Logs Events to the available Logger, Log4j, elswise System.err.
  * 
- * @author  Daniel Gal�n y Martins
+ * @author  Daniel Galán y Martins
  * @version $Revision: 1.2 $
  */
 public class SafeLogger {

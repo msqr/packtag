@@ -42,7 +42,7 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
 /**
  * YuiCompressor from Julien Lecomte (http://www.julienlecomte.net)
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.6 $
  */
 public class YuiCompressorPackStrategy extends AbstractPackStrategy {

@@ -36,7 +36,7 @@ import java.io.Serializable;
 /**
  * Represents a Cached Resource
  * 
- * @author  Daniel Galán y Martins
+ * @author  Daniel Gal‡n y Martins
  * @version $Revision: 1.5 $
  */
 public class Resource implements Cloneable, Serializable {

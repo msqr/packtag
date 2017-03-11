@@ -29,7 +29,7 @@ import net.sf.packtag.strategy.PackException;
  * A Strategy that does not do any compression, instead it's simply returning
  * the files content
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public class DisabledPackStrategy extends CssRewritePackStrategy {

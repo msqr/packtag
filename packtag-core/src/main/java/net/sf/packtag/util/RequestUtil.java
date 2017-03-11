@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Provides some Helper Methodes regarding to the sended request. 
  * 
- * @author  Daniel Galán y Martins
+ * @author  Daniel Gal‡n y Martins
  * @version $Revision: 1.1 $
  */
 public class RequestUtil {

@@ -38,7 +38,7 @@ import net.sf.packtag.strategy.PackStrategy;
  * from Douglas Crockford: http://www.crockford.com This Strategy does not
  * support charsets.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.4 $
  */
 public class JsminPackStrategy implements PackStrategy {

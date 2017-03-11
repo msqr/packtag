@@ -26,7 +26,7 @@ import java.nio.charset.Charset;
  * A Strategy has to implement this Interface, the algorithm needs to return the
  * packed resource.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public interface PackStrategy {

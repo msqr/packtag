@@ -33,7 +33,7 @@ import net.sf.packtag.util.ContextConfiguration;
 /**
  * Can be used to clear the files created, when using cacheType file
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public class CleanupServlet extends HttpServlet {

@@ -29,7 +29,7 @@ import net.sf.packtag.util.RequestUtil;
  * 
  * http://www.onjava.com/pub/a/onjava/2003/11/19/filters.html
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  */
 public class GzipFilter implements Filter {
 

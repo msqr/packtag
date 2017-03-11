@@ -32,7 +32,7 @@ import net.sf.packtag.strategy.PackException;
  * href="http://www.ibloomstudios.com/articles/php_css_compressor/">here</a>
  * for more information.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.3 $
  */
 public class IBloomCssPackStrategy extends CssRewritePackStrategy {

@@ -29,7 +29,7 @@ import java.nio.charset.Charset;
 /**
  * A super Strategy with supporting methods.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public abstract class AbstractPackStrategy implements PackStrategy {

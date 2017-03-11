@@ -33,7 +33,7 @@ import java.io.InputStream;
 /**
  * Reads multiple Inputstreams as one
  * 
- * @author  Daniel Galán y Martins
+ * @author  Daniel Gal‡n y Martins
  * @version $Revision: 1.4 $
  */
 public class CombinedInputStream extends InputStream {

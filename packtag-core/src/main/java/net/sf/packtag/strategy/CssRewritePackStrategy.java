@@ -29,7 +29,7 @@ import net.sf.packtag.util.URIUtils;
 /**
  * A super Strategy with supporting methods.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public abstract class CssRewritePackStrategy extends AbstractPackStrategy {

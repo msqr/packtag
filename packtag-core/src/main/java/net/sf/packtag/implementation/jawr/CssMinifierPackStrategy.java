@@ -26,11 +26,11 @@ import net.sf.packtag.strategy.PackException;
 
 
 /**
- * Wraps the CSSMinifier by Jordi Hernández Sellés, published under the Apache Licence 2.0.
+ * Wraps the CSSMinifier by Jordi Hern‡ndez Sellés, published under the Apache Licence 2.0.
  * See the licence.txt for more information about the Apache Licence, or go to his website:
  * https://jawr.dev.java.net/
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.2 $
  */
 public class CssMinifierPackStrategy extends CssRewritePackStrategy {

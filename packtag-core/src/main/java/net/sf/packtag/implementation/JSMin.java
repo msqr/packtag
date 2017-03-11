@@ -33,7 +33,7 @@ import java.io.Writer;
 /**
  * Pack algorithm for JavaScript
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @author John Reilly
  * @author Douglas Crockford
  * @version $Revision: 1.3 $

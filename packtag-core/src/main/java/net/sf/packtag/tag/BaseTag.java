@@ -4,11 +4,11 @@
  * This software is published under the terms of the LGPL
  * License version 2.1, a copy of which has been included with this
  * distribution in the 'lgpl.txt' file.
- * 
+ *
  * Last author:   $Author: danielgalan $
  * Last modified: $Date: 2008/03/15 16:35:54 $
  * Revision:      $Revision: 1.17 $
- * 
+ *
  * $Log: BaseTag.java,v $
  * Revision 1.17  2008/03/15 16:35:54  danielgalan
  * external resource packaging can be configurated
@@ -89,8 +89,8 @@ import net.sf.packtag.util.SafeLogger;
 
 /**
  * Tag Base class for common Operations
- * 
- * @author Daniel Gal�n y Martins
+ *
+ * @author Daniel Galán y Martins
  * @version $Revision: 1.17 $
  */
 public abstract class BaseTag extends BodyTagSupport {

@@ -44,7 +44,7 @@ import net.sf.packtag.strategy.PackStrategy;
 /**
  * JSP Tag for compressing JavaScript resources.
  * 
- * @author Daniel Galán y Martins
+ * @author Daniel Gal‡n y Martins
  * @version $Revision: 1.7 $
  */
 public class ScriptTag extends PackTag {
