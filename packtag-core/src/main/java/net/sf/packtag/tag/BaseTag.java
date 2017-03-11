@@ -439,24 +439,34 @@ public abstract class BaseTag extends BodyTagSupport {
 	 * (and better it doesn't has dependencies to those).
 	 * BUT it is therefore fragile (No comments (if they are in the src-tag) nor whitespaces are allowed in the
 	 * tags (e.g. &lt;src &gt; wouldn't work).
-	 * 
+	 *
 	 * @return A List with shortQualifiedPaths
 	 */
 	protected List parseBody(final String bodyString) {
 		int bodyIndex = 0;
 		List resources = new ArrayList();
-		while(bodyIndex < (bodyString.length() - 1)) {
-			int indexSrcStart = bodyString.indexOf(SRC_TAG_START, bodyIndex);
-			if (indexSrcStart == -1) {
-				return resources;
+		if ( bodyString.indexOf(SRC_TAG_START, 0) != -1 ) {
+			while(bodyIndex < (bodyString.length() - 1)) {
+				int indexSrcStart = bodyString.indexOf(SRC_TAG_START, bodyIndex);
+				if (indexSrcStart == -1) {
+					return resources;
+				}
+				int indexSrcEnd = bodyString.indexOf(SRC_TAG_END, bodyIndex);
+				if (indexSrcEnd == -1) {
+					return resources;
+				}
+				String source = bodyString.substring(indexSrcStart + 5, indexSrcEnd).trim();
+				resources.add(determineAbsolutePath(source));
+				bodyIndex = indexSrcEnd + 6;
 			}
-			int indexSrcEnd = bodyString.indexOf(SRC_TAG_END, bodyIndex);
-			if (indexSrcEnd == -1) {
-				return resources;
+		} else {
+			String[] paths = bodyString.split("\\s*[,\\n]\\s*");
+			for ( int i = 0; i < paths.length; i++ ) {
+				String path = paths[i].trim();
+				if ( path.length() > 0 ) {
+					resources.add(determineAbsolutePath(path));
+				}
 			}
-			String source = bodyString.substring(indexSrcStart + 5, indexSrcEnd).trim();
-			resources.add(determineAbsolutePath(source));
-			bodyIndex = indexSrcEnd + 6;
 		}
 		return resources;
 	}
