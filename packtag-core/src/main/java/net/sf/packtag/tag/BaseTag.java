@@ -62,6 +62,9 @@ public abstract class BaseTag extends BodyTagSupport {
 	private Boolean minify = Boolean.TRUE;
 	/** I enabled is set to false, the original resource will be referenced */
 	private boolean enabled = true;
+	
+	/** A customized context, like in c:url standard tag. */
+	private String context = null;
 
 	private String prefix;
 
@@ -318,7 +321,11 @@ public abstract class BaseTag extends BodyTagSupport {
 	/** Retrieves the contextpath */
 	protected String getContextPath() {
 		String contextPath = null;
-		if (HttpServletRequest.class.isAssignableFrom(pageContext.getRequest().getClass())) {
+		String context = getContext();
+		if (context != null && context.length() > 0) {
+			contextPath = (context.endsWith("/") ? context.substring(0, context.length()-1) : context);
+		}
+		else if (HttpServletRequest.class.isAssignableFrom(pageContext.getRequest().getClass())) {
 			contextPath = ((HttpServletRequest)pageContext.getRequest()).getContextPath();
 		}
 		else {
@@ -451,6 +458,14 @@ public abstract class BaseTag extends BodyTagSupport {
 
 	protected ServletContext getServletContext() {
 		return pageContext.getServletContext();
+	}
+
+	public String getContext() {
+		return context;
+	}
+	
+	public void setContext(String context) {
+		this.context = context;
 	}
 
 }
