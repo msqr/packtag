@@ -34,10 +34,45 @@ public class PackServlet extends HttpServlet {
 
 	private static final String CONTENT_TYPE = "Content-Type";
 	private static final String CHARSET_UTF8 = ";charset=utf-8";
+	
+	/**
+	 * A servlet init param that contains the name of a HTTP header to look for
+	 * that will hold the servlet context path to use, to support running behind
+	 * a reverse proxy.
+	 */
+	public static final String CONTEXT_PATH_HEADER_PARAM_NAME = "Context-Path-Header";
 
+	/**
+	 * Get a mapped resource path for a request.
+	 * 
+	 * <p>If the servlet is initialized with the {@link #CONTEXT_PATH_HEADER_PARAM_NAME}
+	 * parameter, this method will look for a HTTP header of that name and use that
+	 * as the servlet context path, inserting it into the request path if needed.</p>
+	 * 
+	 * @param request the request
+	 * @return the path
+	 */
+	protected String getMappedResourcePath(HttpServletRequest request) {
+		String headerName = getInitParameter(CONTEXT_PATH_HEADER_PARAM_NAME);
+		String contextPath = request.getContextPath();
+		if (headerName != null) {
+			String contextHeaderPathValue = request.getHeader(headerName);
+			if (contextHeaderPathValue != null) {
+				contextPath = contextHeaderPathValue;
+			}
+		}
+		String resourcePath = request.getRequestURI();
+		if (contextPath.length() > 0 && !resourcePath.startsWith(contextPath)) {
+			resourcePath = contextPath 
+					+(contextPath.endsWith("/") || resourcePath.startsWith("/") ? "" : "/")
+					+resourcePath;
+		}
+		return resourcePath;
+	}
 
 	protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-		Resource resource = PackCache.getResourceByMappedPath(getServletContext(), request.getRequestURI());
+		Resource resource = PackCache.getResourceByMappedPath(getServletContext(), 
+				getMappedResourcePath(request));
 
 		if (resource == null) {
 			response.sendError(404, "The requested packed resource was not found.");
