@@ -321,11 +321,7 @@ public abstract class BaseTag extends BodyTagSupport {
 	/** Retrieves the contextpath */
 	protected String getContextPath() {
 		String contextPath = null;
-		String context = getContext();
-		if (context != null && context.length() > 0) {
-			contextPath = (context.endsWith("/") ? context.substring(0, context.length()-1) : context);
-		}
-		else if (HttpServletRequest.class.isAssignableFrom(pageContext.getRequest().getClass())) {
+		if (HttpServletRequest.class.isAssignableFrom(pageContext.getRequest().getClass())) {
 			contextPath = ((HttpServletRequest)pageContext.getRequest()).getContextPath();
 		}
 		else {
@@ -453,6 +449,27 @@ public abstract class BaseTag extends BodyTagSupport {
 			return false;
 		}
 		return source.startsWith(PROTOCOLL_HTTP) || source.startsWith(PROTOCOLL_HTTPS);
+	}
+	
+	
+	/**
+	 * Append a resource path to a buffer, supporting the configured {@code context}.
+	 * 
+	 * @param buffer the buffer to append to
+	 * @param path the path to append
+	 */
+	protected void appendResourcePath(StringBuffer buffer, String path) {
+		String ctx = getContext();
+		if (ctx != null && ctx.length() > 0) {
+			buffer.append(ctx);
+			if (ctx.endsWith(SLASH) && path.startsWith(SLASH)) {
+				buffer.setLength(buffer.length()-1);
+			}
+			else if (!(ctx.endsWith(SLASH) || path.startsWith(SLASH))) {
+				buffer.append(SLASH);
+			}
+		}
+		buffer.append(path);
 	}
 
 

@@ -45,7 +45,7 @@ public class StyleTag extends PackTag {
 	protected void writeResouce(final JspWriter writer, final String path) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(STYLE_START);
-		buffer.append(path);
+		appendResourcePath(buffer, path);
 		if ((getMedia() != null) && !getMedia().equals(EMPTY_STRING)) {
 			buffer.append(STYLE_MEDIA);
 			buffer.append(getMedia());

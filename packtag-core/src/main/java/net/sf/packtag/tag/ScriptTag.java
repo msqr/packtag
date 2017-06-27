@@ -53,7 +53,7 @@ public class ScriptTag extends PackTag {
 	protected void writeResouce(final JspWriter writer, final String path) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(SCRIPT_START);
-		buffer.append(path);
+		appendResourcePath(buffer, path);
 		buffer.append(SCRIPT_SRC_END);
 		if (isEnabled()) {
 			buffer.append(OUTPUT_CHARSET);
